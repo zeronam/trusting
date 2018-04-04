@@ -1,5 +1,9 @@
-.col-half-offset{
-    margin-left:3.166666667%
+h1 {
+    overflow: hidden;
+    display: block;
+    font-size: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .product-content {
@@ -8,7 +12,8 @@
 }
 
 .navlink{
-    max-height: 42px;
-    overflow: hidden;
-    display: block;
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
 }

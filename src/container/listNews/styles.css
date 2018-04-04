@@ -14,4 +14,9 @@
     padding:10px;
     border-radius:5px;
     min-height: 220px;
+    position: relative;
+}
+
+.row.list-group li .inner:hover{
+    border-color: #337ab7;
 }
