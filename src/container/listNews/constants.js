@@ -1,0 +1,2 @@
+export const GET_NEWS_ASYNC = 'GET_NEWS_ASYNC';
+export const GET_NEWS_SUCCESS = 'GET_NEWS_SUCCESS';

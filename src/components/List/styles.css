@@ -1,0 +1,14 @@
+.col-half-offset{
+    margin-left:3.166666667%
+}
+
+.product-content {
+    max-height:60px;
+    overflow: hidden;
+}
+
+.navlink{
+    max-height: 42px;
+    overflow: hidden;
+    display: block;
+}

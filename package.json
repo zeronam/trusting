@@ -1,0 +1,26 @@
+{
+  "name": "trusting",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "eslint": "^4.19.1",
+    "history": "^4.7.2",
+    "moment": "^2.22.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-moment": "^0.7.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "1.1.2",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

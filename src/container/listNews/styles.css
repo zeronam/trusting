@@ -1,0 +1,17 @@
+.app {
+    text-align: center;
+}
+.row.list-group {
+    list-style: none;
+}
+
+.row.list-group li {
+    margin-bottom: 20px;
+}
+
+.row.list-group li .inner {
+    border:1px solid #ddd;
+    padding:10px;
+    border-radius:5px;
+    min-height: 220px;
+}
