@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Modal} from 'react-bootstrap';
 import Moment from 'react-moment';
 import { NavLink } from 'react-router-dom';
@@ -9,12 +10,13 @@ class PopOver extends Component {
       this.props.onClose();
     }
     render(){
+
       if(!this.props.show){
         return null;
       }
+      
       return (
           <Modal show={this.props.show}>
-
             <Modal.Header>
             <button type="button" className="close" onClick={(e) => this.onClose(e)}><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
               <Modal.Title>{this.props.data.headline.main}</Modal.Title>
@@ -32,5 +34,11 @@ class PopOver extends Component {
       )
     }
 }
+
+PopOver.propTypes = {
+  show: PropTypes.bool,
+  onClose: PropTypes.bool,
+  data: PropTypes.object
+};
 
 export default PopOver;
