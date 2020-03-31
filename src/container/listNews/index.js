@@ -11,16 +11,20 @@ import './styles.css';
 class ListNews extends Component {
     constructor(props) {
         super(props);
-
+        console.log('constructor');
         this.state = {
             content: {},
             hadContent: false,
             showPopup: false,
-            contentSelected: null
+            text: 'text',
+            contentSelected: null,
         }
+
+
     }
 
     componentDidMount() {
+        console.log('componentDidMount');
         this.props.dispatch({
             type: CreateActionType.GET_NEWS_ASYNC,
             params: {
@@ -30,10 +34,37 @@ class ListNews extends Component {
     };
 
     componentWillReceiveProps(nextProps) {
+        console.log('componentWillReceiveProps');
+        console.log(this.state.content);
         if (nextProps.data.length > 0) {
             this.setState({ content: nextProps.data, hadContent: true });
         }
     };
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log(`shouldComponentUpdate`);
+        console.log('props', this.props.data);
+        console.log('props', nextProps);
+        console.log('state', this.state);
+        console.log('nextState', nextState);
+        // if (this.state.hadContent === nextState.hadContent) {
+        //     return false;
+        // }
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('componentWillUpdate');
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate');
+    }
+
+    componentWillUnmount() {
+        debugger;
+        console.log('componentWillUnmount');
+    }
 
     handlePageClick = (data) => {
         let selected = data.selected;
@@ -54,13 +85,22 @@ class ListNews extends Component {
         this.setState({ showPopup: false });
     }
 
+
+
+    reRender = () => {
+        this.setState({
+            text: 'hello world'
+        });
+    }
+
     render() {
+        console.log('render');
         const item = this.state.hadContent ? <ListItem data={this.state.content} getData={this.getDataFromChild} /> : <Loading />;
         return (
             <div className="app">
                 <div className="container">
                     <div className="list">
-                        <Modal show={this.state.showPopup} onClose={this.closePopup} data={this.state.contentSelected} />
+                        <Modal closePopup={this.closePopup} show={this.state.showPopup} data={this.state.contentSelected} />
                         {item}
                         <ReactPaginate
                             previousLabel={"previous"}
@@ -74,6 +114,9 @@ class ListNews extends Component {
                             containerClassName={"list-group pagination"}
                             subContainerClassName={"pages pagination"}
                             activeClassName={"active"} />
+
+                        <p>{this.state.text ? this.state.text : null}</p>
+                        <button onClick={this.reRender}>Update</button>
                     </div>
                 </div>
             </div>
